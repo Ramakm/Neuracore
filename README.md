@@ -1,4 +1,4 @@
-# AI Product Showcase & HandTracking
+# HandTracking DataViz
 
 ## Overview
 This repository contains two distinct visualization projects:
