@@ -7,6 +7,9 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { Background } from './scene/Background.js';
 import { Network } from './scene/Network.js';
 import { Sequencer } from './scene/Sequencer.js';
+import { HandTracker } from './data/HandTracker.js';
+import { HandModel } from './scene/HandModel.js';
+import { Charts } from './data/Charts.js';
 
 class App {
     constructor() {
@@ -40,6 +43,11 @@ class App {
         this.network = new Network(this.scene);
         this.sequencer = new Sequencer(this.camera);
 
+        // Hand Tracking & Data Viz
+        this.handModel = new HandModel(this.scene);
+        this.charts = new Charts();
+        this.handTracker = new HandTracker();
+
         // Event Listeners
         window.addEventListener('resize', this.onResize.bind(this));
 
@@ -65,6 +73,12 @@ class App {
 
     init() {
         this.setupLights();
+
+        // Start Hand Tracking
+        this.handTracker.start((results) => {
+            if (this.handModel) this.handModel.update(results);
+            if (this.charts) this.charts.update(results);
+        });
     }
 
     setupLights() {

@@ -1,41 +1,50 @@
-# HandTracking DataViz
+# AI Product Showcase & HandTracking
 
 ## Overview
-A Bento box dashboard that visualizes live hand tracking data in real time. The application captures hand movements via webcam, processes the coordinates, and renders interactive charts and 3D visualizations.
+This repository contains two distinct visualization projects:
+1. **AI Product Showcase**: A cinematic, futuristic 3D animation featuring a neural network and camera sequence (Current Active Code).
+2. **HandTracking DataViz**: A conceptual dashboard for live hand tracking (Documentation Reference).
 
-## Prerequisites
-1. Install Node.js (>=18) and npm.
-2. Ensure a webcam is connected and accessible.
-3. Clone the repository and navigate to the project folder.
+---
 
-## Setup & Installation
+## 1. AI Product Showcase
+A real-time cinematic web experience built with **Three.js** and **GSAP**.
+
+### Features
+- **Abstract Space**: Floating particle systems and coherent grid structures.
+- **Neural Network**: Glowing nodes and autonomous agents navigating data paths.
+- **Cinematic Sequence**: Director-style camera movements synced with typography.
+- **Post-Processing**: Unreal Bloom for premium neon aesthetics.
+
+### Running the Showcase
 ```bash
-git clone <repo-url>
-cd handtracking-dataviz
 npm install
-```
-
-## Running the Application
-```bash
 npm run dev
 ```
-Open `http://localhost:5173` in your browser. Grant webcam permissions when prompted.
+Open `http://localhost:5173` to view the animation.
 
-## How It Works
+---
+
+## 2. HandTracking DataViz (Legacy/Concept)
+A Bento box dashboard that visualizes live hand tracking data.
+
+### How It Works
 1. **Capture** – The browser accesses the webcam using the MediaDevices API.
 2. **Track** – Hand landmarks are extracted with MediaPipe Hands.
 3. **Process** – Coordinates are normalized and sent to the visualization layer.
 4. **Visualize** – D3.js renders line charts while Three.js displays a 3D hand model.
 5. **Interact** – Use mouse or touch to rotate the 3D view and hover over chart points for details.
 
-## Customization
+### Customization
 - Edit `src/config.js` to change the color palette.
 - Modify `src/components/Chart.jsx` to add new data series.
 - Adjust the Three.js scene in `src/scene/HandModel.js` for different lighting.
 
-## Troubleshooting
+### Troubleshooting
 - **Webcam not detected** – Verify browser permissions and that no other application is using the camera.
 - **Performance drops** – Reduce the `maxNumHands` parameter in `src/utils/handTracker.js`.
+
+---
 
 ## License
 This project is licensed under the MIT License.
